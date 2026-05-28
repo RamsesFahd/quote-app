@@ -5,13 +5,13 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Installing dependencies...'
-                bat 'pip install -r requirements.txt'
+                bat 'python -m pip install -r requirements.txt'
             }
         }
         stage('Test') {
             steps {
                 echo 'Running tests...'
-                bat 'pytest'
+                bat 'python -m pytest'
             }
         }
         stage('Package') {
