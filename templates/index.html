@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quotidian</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body>
+
+  <header>
+    <div class="logo">Quotidian</div>
+    <button class="fav-toggle" id="favToggle">
+      Favorites <span class="fav-badge" id="favCount">0</span>
+    </button>
+  </header>
+
+  <main>
+
+    <nav class="categories" role="group" aria-label="Quote categories">
+      <button class="cat-pill active" data-category="all">All</button>
+      <button class="cat-pill" data-category="motivation">Motivation</button>
+      <button class="cat-pill" data-category="wisdom">Wisdom</button>
+      <button class="cat-pill" data-category="peace">Peace</button>
+      <button class="cat-pill" data-category="courage">Courage</button>
+      <button class="cat-pill" data-category="friendship">Friendship</button>
+      <button class="cat-pill" data-category="love">Love</button>
+    </nav>
+
+    <div class="card" id="quoteCard">
+      <span class="card-category" id="charTag">Motivation</span>
+
+      <div class="quote-body">
+        <span class="open-mark">&ldquo;</span>
+        <p class="quote-text" id="quoteText">Loading a quote for you…</p>
+        <span class="close-mark">&rdquo;</span>
+      </div>
+
+      <div class="attribution" id="attribution">— Sakura</div>
+
+      <div class="divider"></div>
+
+      <div class="actions">
+        <button class="btn btn-primary" id="newBtn">New Quote</button>
+        <button class="btn btn-ghost"   id="copyBtn">Copy</button>
+        <button class="btn btn-ghost btn-heart" id="favBtn">Save</button>
+      </div>
+    </div>
+
+  </main>
+
+  <div class="toast" id="toast" role="status">Copied to clipboard.</div>
+
+  <div class="overlay" id="overlay"></div>
+  <aside class="fav-panel" id="favPanel" aria-label="Favorites">
+    <div class="fav-panel-header">
+      <h2>Favorites</h2>
+      <button class="close-btn" id="closePanel">&#215;</button>
+    </div>
+    <div class="fav-list" id="favList">
+      <p class="empty-msg">No favorites saved yet.<br />Hit &ldquo;Save&rdquo; on any quote to keep it here.</p>
+    </div>
+  </aside>
+
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
