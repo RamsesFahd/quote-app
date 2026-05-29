@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    triggers {
+        pollSCM('H/5 * * * *')
+    }
+
     environment {
         APP_NAME  = 'quote-app'
         PORT      = '5000'
